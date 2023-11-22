@@ -6,31 +6,96 @@
 /*   By: omaali <omaali@student.42barcelon>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/29 03:24:14 by omaali            #+#    #+#             */
-/*   Updated: 2023/11/06 22:19:39 by omaali           ###   ########.fr       */
+/*   Updated: 2023/11/22 02:41:21 by omaali           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdarg.h>
 #include <stdio.h>
 
-int ft_printf(const str*, ...)
- {
-     va_list arg;
-     int     count;
+int	print_int(int nb)
+{
+	int	count;
 
-     va_start(arg, str);
-     count = 0;
-     while (*str != '\0')
-     {
-         if (*str == '%')
-             print_format(*(str++, arg));
-         else
-             ft_putchr(chr, count);
-         count++;
-         str++;
-     }
-     va_end(arg);
-     return count;
- }
+	count = 0;
+	if(nb < 0)
+	{		
+		nb = -nb;
+		print_char('-');
+	}
 
+	if(nb > 9)
+	{
+		print_int(nb/10);
+		print_int(nb % 10);
+	}
+	else
+		count += print_char(nb + '0');
+	return (count);
+}
 
+int print_char(int c)
+{
+	int	count;
+	
+	count = write(1, &c, 1);
+	if (count == -1)
+		return ;
+	return (count);
+}
+int print_str(char *str)
+{
+	int	count;
+	count = 0;
+	while (str && count != -1)
+		count += print_char((int)*str);
+		str++;
+	return (count);
+}
+int print_format(char str, va_list args, int *count)
+{
+	if (str == 'c')
+		count += print_char(va_arg(args, int));
+	else if (str == 's')
+		count += print_str(va_arg(args, char *));
+	else if (str == 'i')
+		count += print_int(va_arg(args, int));
+	else if (str == 'd')
+		count += print_decimal(va_arg(args, int), 10);
+	else if (str == 'x')
+		count += print_decimal(va_arg(args, unsigned int), 16);
+	else if (str == 'p')
+		count += print_hexadecimal(va_arg(args, unsigned long));
+	else if (str == 'u')
+		count += print_decimal(va_arg(args, unsigned int), 10);
+	else if (str == 'X')
+		count += print_decimal(va_arg(args, unsigned int), 16);
+	else if (str == '%')
+		count += write(1, "%%", 1);
+	else 
+		count = -1;
+	return (count);
+}
+
+int ft_printf(const *str, ...)
+{
+	
+	va_list	args;
+	int	count;
+
+	va_start(args, str);
+	count = 0;
+	while (*str && count == -1)
+	{
+		if (*str == '%')
+		{
+			str++;
+			print_format((str, args));
+		}
+		else
+			count += print_char(str);
+		str++;
+	}
+	va_end(args);
+	return count;
+}
