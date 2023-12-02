@@ -13,6 +13,21 @@
 #include <stdarg.h>
 #include <stdio.h>
 
+static int	check_min_num(int nb, int *count)
+{
+	if (nb <= -2147483648)
+	{
+		if (write(1, "2147483648", 11) == -1)
+		{	
+			*count = -1;
+			return (-1);
+		}
+		*count += 11;
+		return (-1);
+	}
+	return (0);
+
+}
 int	print_int(int nb)
 {
 	int	count;
@@ -85,12 +100,12 @@ int ft_printf(const *str, ...)
 
 	va_start(args, str);
 	count = 0;
-	while (*str && count == -1)
+	while (*str && count != -1)
 	{
 		if (*str == '%')
 		{
 			str++;
-			print_format((str, args));
+			print_format(str, args);
 		}
 		else
 			count += print_char(str);
