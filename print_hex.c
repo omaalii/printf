@@ -12,7 +12,7 @@
 
 #include "ft_printf.h"
 
-void    print_hex(unsigned int, int type, int flag)
+void    print_hex(unsigned int nb, int type, int flag)
 {
     char    *hex;
     int     count;
@@ -24,7 +24,7 @@ void    print_hex(unsigned int, int type, int flag)
         if (count == -1)
             return ;
     }
-    else if (n != 0)
+    else if (nb != 0)
     {
         flag = 0;
         hex = "0123456789abcdef"

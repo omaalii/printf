@@ -10,4 +10,21 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "ft_printf.h"
+
+void print_unsint( unsigned int nb)
+{
+int count;
+
+count = 0;
+if(nb > 9)
+	{
+		print_int(nb/10);
+		print_int(nb % 10);
+	}
+	else
+		count += print_char(nb + '0');
+	return (count);
+}
+
 
