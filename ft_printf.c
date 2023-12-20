@@ -68,15 +68,15 @@ int print_format(char str, va_list args, int *count)
 	else if (str == 'i')
 		count += print_int(va_arg(args, int));
 	else if (str == 'd')
-		count += print_decimal(va_arg(args, int), 10);
+		count += print_int(va_arg(args, int));
 	else if (str == 'x')
-		count += print_decimal(va_arg(args, unsigned int), 16);
+		count += print_hex(va_arg(args, unsigned int), 0, 1);
 	else if (str == 'p')
-		count += print_hex(va_arg(args, unsigned long));
+		count += print_void(va_arg(args, unsigned long), 0, "0123456789abcdef");
 	else if (str == 'u')
-		count += print_decimal(va_arg(args, unsigned int), 10);
+		count += print_unsint(va_arg(args, int));
 	else if (str == 'X')
-		count += print_decimal(va_arg(args, unsigned int), 16);
+		count += print_hex(va_arg(args, unsigned int), 1, 1);
 	else if (str == '%')
 		count += write(1, "%%", 1);
 	else 
