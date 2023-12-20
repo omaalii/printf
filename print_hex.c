@@ -12,7 +12,7 @@
 
 #include "ft_printf.h"
 
-void    print_hex(unsigned int nb, int type, int flag)
+int print_hex(unsigned int nb, int type, int flag)
 {
     char    *hex;
     int     count;
@@ -33,8 +33,9 @@ void    print_hex(unsigned int nb, int type, int flag)
             return ;
         if (type == 1)
             hex = "123456789ABCDEF"
-        print_char(hex[nb % 16]);
+        count += print_char(hex[nb % 16]);
         if (count == -1)
             return ;
+        return (count);
     }
 }

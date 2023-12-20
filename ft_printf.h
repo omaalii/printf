@@ -10,4 +10,22 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#ifndef FT_PRINTF_H
+#define FT_PRINTF_H
+
+#include "ft_printf.h"
+#include <unistd.h>
+#include <stdarg.h>
+#include <stdio.h>
+
+int ft_printf(const *str, ...);
+int print_char(int c);
+int print_str(char *str);
+int print_hex(unsigned int nb, int type, int flag);
+int	print_int(int nb);
+int print_unsint( unsigned int nb);
+int (unsigned long nb, int flag, char* hex);
+
+#endif
+
 

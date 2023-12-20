@@ -72,7 +72,7 @@ int print_format(char str, va_list args, int *count)
 	else if (str == 'x')
 		count += print_decimal(va_arg(args, unsigned int), 16);
 	else if (str == 'p')
-		count += print_hexadecimal(va_arg(args, unsigned long));
+		count += print_hex(va_arg(args, unsigned long));
 	else if (str == 'u')
 		count += print_decimal(va_arg(args, unsigned int), 10);
 	else if (str == 'X')

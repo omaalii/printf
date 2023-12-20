@@ -12,7 +12,7 @@
 
 #include "ft_printf.h"
 
-void print_unsint( unsigned int nb)
+int print_unsint( unsigned int nb)
 {
 int count;
 
