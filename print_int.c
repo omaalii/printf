@@ -36,7 +36,7 @@ int	print_int(int nb)
 
 	count = 0;
     if ((check_min_num(nb)) == -1)
-        return ;
+        return -1;
 	if(nb < 0)
 	{		
 		nb = -nb;
@@ -51,13 +51,4 @@ int	print_int(int nb)
 	else
 		count += print_char(nb + '0');
 	return (count);
-}
-
-#include <stdio.h>
-#include <unistd.h>
-
-int main()
-{
-	printf("%i", print_int(32));
-	return (0);
 }
