@@ -19,15 +19,15 @@ static int	check_min_num(int nb)
 	count = 0;
 	if (nb <= -2147483648)
 	{
-		if (write(1, "2147483648", 11) == -1)
-		{	
+		if (write(1, "-2147483648", 11) == -1)
+		{
 			count = -1;
 			return (-1);
 		}
 		count += 11;
 		return (-1);
 	}
-	return (count);
+	return (0);
 }
 
 int	print_int(int nb)
@@ -36,17 +36,16 @@ int	print_int(int nb)
 
 	count = 0;
     if ((check_min_num(nb)) == -1)
-        return -1;
-	if(nb < 0)
+        return (11);
+	if (nb < 0)	
 	{		
 		nb = -nb;
-		print_char('-');
+		count += print_char('-');
 	}
-
 	if(nb > 9)
 	{
-		print_int(nb/10);
-		print_int(nb % 10);
+		count += print_int(nb / 10);
+		count += print_int(nb % 10);
 	}
 	else
 		count += print_char(nb + '0');

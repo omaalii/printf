@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_print.h"
+#include "ft_printf.h"
 
 int print_char(int c)
 {
@@ -18,6 +18,6 @@ int print_char(int c)
 	
 	count = write(1, &c, 1);
 	if (count == -1)
-		return ;
+		return (-1);
 	return (count);
 }

@@ -6,7 +6,7 @@
 #    By: omaali <omaali@student.42barcelon>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/12/26 20:25:34 by omaali            #+#    #+#              #
-#    Updated: 2023/12/26 21:19:16 by omaali           ###   ########.fr        #
+#    Updated: 2023/12/27 17:42:55 by omaali           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,7 +29,7 @@ CC = gcc
 %.o:%.c		Makefile ft_printf.h
 					${CC} ${FLAGS} -I ./ -c $< -o $@
 
-$(NAME) :	$(OBJECTS}
+$(NAME):	$(OBJECTS)
 			ar rc ${NAME} ${OBJECTS}
 
 all: $(NAME)

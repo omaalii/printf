@@ -20,22 +20,23 @@ int print_hex(unsigned int nb, int type, int flag)
     count = 0;
     if (nb == 0 && flag > 0)
     {
-        print_char('0');
+        count += print_char('0');
         if (count == -1)
-            return ;
+            return (-1);
     }
     else if (nb != 0)
     {
         flag = 0;
-        hex = "0123456789abcdef"
-        print_hex(nb / 16, type, 0);
+        hex = "0123456789abcdef";
+        count += print_hex(nb / 16, type, 0);
         if (count == -1)
-            return ;
+            return (-1);
         if (type == 1)
-            hex = "123456789ABCDEF"
+            hex = "0123456789ABCDEF";
         count += print_char(hex[nb % 16]);
         if (count == -1)
-            return ;
+            return (-1);
         return (count);
     }
+    return (count);
 }

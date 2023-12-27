@@ -10,15 +10,19 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_print.h"
+#include "ft_printf.h"
 
 int print_str(char *str)
 {
 	int	count;
 	
 	count = 0;
-	while (str && count != -1)
+	if (!str)
+		str = "(null)";
+	while (*str != '\0' && count != -1)
+	{
 		count += print_char((int)*str);
 		str++;
+	}
 	return (count);
 }
