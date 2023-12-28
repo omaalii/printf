@@ -6,16 +6,16 @@
 /*   By: omaali <omaali@student.42barcelon>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/29 03:25:41 by omaali            #+#    #+#             */
-/*   Updated: 2023/10/29 03:25:41 by omaali           ###   ########.fr       */
+/*   Updated: 2023/12/28 22:28:22 by omaali           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int print_str(char *str)
+int	print_str(char *str)
 {
 	int	count;
-	
+
 	count = 0;
 	if (!str)
 		str = "(null)";

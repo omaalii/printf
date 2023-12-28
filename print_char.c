@@ -6,18 +6,13 @@
 /*   By: omaali <omaali@student.42barcelon>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/29 03:25:01 by omaali            #+#    #+#             */
-/*   Updated: 2023/11/22 08:04:14 by omaali           ###   ########.fr       */
+/*   Updated: 2023/12/28 22:27:54 by omaali           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int print_char(int c)
+int	print_char(int c)
 {
-	int	count;
-	
-	count = write(1, &c, 1);
-	if (count == -1)
-		return (-1);
-	return (count);
+	return (write(1, &c, 1));
 }
