@@ -41,6 +41,7 @@ int ft_printf(char const *str, ...)
 {
 	va_list	args;
 	int	count;
+	int oldcount;
 
 	va_start(args, str);
 	count = 0;
@@ -49,10 +50,10 @@ int ft_printf(char const *str, ...)
 		if (*str == '%')
 		{
 			str++;
-			// int oldConut = count;
+			oldcount = count;
 			count += print_format(*str, args);
-			// if(olCOunt > count)
-			// 	count = -1;
+			if (oldcount > count)
+				return (-1);
 		}
 		else
 			count += print_char(*str);

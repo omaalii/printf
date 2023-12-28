@@ -25,7 +25,7 @@ static int	check_min_num(int nb)
 			return (-1);
 		}
 		count += 11;
-		return (-1);
+		return (count);
 	}
 	return (0);
 }
@@ -41,6 +41,8 @@ int	print_int(int nb)
 	{		
 		nb = -nb;
 		count += print_char('-');
+		if (count == -1)
+			return (-1);
 	}
 	if(nb > 9)
 	{
@@ -49,5 +51,7 @@ int	print_int(int nb)
 	}
 	else
 		count += print_char(nb + '0');
+	if (count == -1)
+		return (-1);
 	return (count);
 }

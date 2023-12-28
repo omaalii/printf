@@ -21,8 +21,12 @@ int print_unsint( unsigned int nb)
 	{
 		count += print_int(nb/10);
 		count += print_int(nb % 10);
+		if (count == -1)
+			return (-1);
 	}
 	else
 		count += print_char(nb + '0');
+		if (count == -1)
+			return (-1);
 	return (count);
 }
